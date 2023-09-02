@@ -4,9 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
 
 
+    <!--  Toolbar Start  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/custom_toolbar"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="24dp"
+            >
+
+            <TextView
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold|italic"
+                android:text="How to check network"
+                android:gravity="center"
+                />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
+    <!--  Toolbar End  -->
+
+    <!--  After Toolbar  -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Please enter what you want to listen"
+        android:layout_margin="20dp"
+        app:boxStrokeColor="#73FF5722"
+        app:hintTextColor="#73FF5722"
+        app:endIconMode="clear_text"
+        app:endIconTint="#73FF5722"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Click Here"
+        android:textAllCaps="false"
+        android:background="@drawable/custom_button"
+        android:textColor="@drawable/button_text_color"
+        android:enabled="false"
+        />
 
 
 </LinearLayout>
