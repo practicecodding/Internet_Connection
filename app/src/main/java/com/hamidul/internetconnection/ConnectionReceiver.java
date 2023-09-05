@@ -11,12 +11,15 @@ import android.net.NetworkInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class ConnectionReceiver extends BroadcastReceiver {
-    Context mContext,nContext;
+    Context mContext;
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -51,6 +54,7 @@ public class ConnectionReceiver extends BroadcastReceiver {
         Button buttonOk = view.findViewById(R.id.buttonOk);
 
         final AlertDialog alertDialog = builder.create();
+
 
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override

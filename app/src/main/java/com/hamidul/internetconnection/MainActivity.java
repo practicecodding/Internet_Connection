@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         broadcastReceiver = new ConnectionReceiver();
         registerNetworkBroadcast();
 
-
     }
 
     protected void registerNetworkBroadcast(){
@@ -47,4 +46,5 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         unregisterNetwork();
     }
+
 }
