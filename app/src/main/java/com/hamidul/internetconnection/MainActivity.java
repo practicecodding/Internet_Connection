@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             unregisterReceiver(broadcastReceiver);
         }catch (IllegalArgumentException e){
             e.printStackTrace();
-
         }
     }
 
@@ -59,11 +58,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class ConnectionReceiverMain extends BroadcastReceiver {
-        Context mContext;
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            if (isConnected(context)){
+            if (isConnected()){
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.add(R.id.frameLayout,new FirstFragment());
@@ -78,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        public boolean isConnected(Context context){
+        public boolean isConnected(){
 
             try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
+                ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
                 return (networkInfo!=null && networkInfo.isConnected());
             }catch (NullPointerException e){
@@ -89,31 +87,8 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
 
-
-        }
-
-        public void showDialog(){
-            AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-            LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = layoutInflater.inflate(R.layout.alertdialog_layout,null);
-            builder.setView(view);
-            Button buttonOk = view.findViewById(R.id.buttonOk);
-
-            final AlertDialog alertDialog = builder.create();
-
-
-            buttonOk.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    alertDialog.dismiss();
-                }
-            });
-            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            alertDialog.show();
-
         }
 
     }
-
 
 }
